@@ -1,0 +1,72 @@
+﻿@model ReadLater5.Models.DashboardViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Bookmark Statistics</h3>
+            </div>
+            <div class="panel-body">
+                @if (Model.BookmarkStats.Item1 > 0)
+                {
+                    <dl class="dl-horizontal">
+                        <dt>Top Bookmark ID:</dt>
+                        <dd>@Model.BookmarkStats.Item1</dd>
+                        <dt>Total Clicks:</dt>
+                        <dd>@Model.BookmarkStats.Item2</dd>
+                        <dt>Total Bookmarks:</dt>
+                        <dd>@Model.TotalBookmarks</dd>
+                    </dl>
+                }
+                else
+                {
+                    <p class="text-muted">No bookmark data available.</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Top 5 Most Clicked Bookmarks</h3>
+            </div>
+            <div class="panel-body">
+                @if (Model.TopBookmarks != null && Model.TopBookmarks.Any())
+                {
+                    <ul class="list-group">
+                        @foreach (var bookmark in Model.TopBookmarks)
+                        {
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <strong>@bookmark.ShortDescription</strong>
+                                        <br />
+                                        <small class="text-muted">@bookmark.URL</small>
+                                    </div>
+                                    <div class="col-md-4 text-right">
+                                        <span class="badge">@bookmark.ClickCounter clicks</span>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p class="text-muted">No bookmarks available.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Back to Bookmarks", "Index", "Bookmarks", null, new { @class = "btn btn-default" })
+</p>
