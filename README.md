@@ -36,3 +36,53 @@ Read Later is a fictional service designed to test a range of skills using the .
         Provide 1 or more widgets that can be used in an external website, regardless of the server side technology.  These can provide any functionality you choose - for example showing the most recent 5 bookmarks for a particular user, or the 3 most popular bookmarks today
     </li>
 </ol>
+
+
+
+API Usage
+Follow these steps to authenticate and use the Bookmarks API:
+
+Prerequisites
+Ensure the project is running locally
+
+Have valid credentials (username and password)
+
+Authentication Flow
+1. Start the Project
+Launch your local development server to run the API.
+
+2. Access Swagger Documentation
+Navigate to the Swagger UI interface:
+
+text
+http://localhost:44326/swagger
+3. Obtain JWT Token
+Locate the /jwttoken endpoint in Swagger
+
+Click "Try it out"
+
+Enter your valid credentials:
+
+Username: Your registered username
+
+Password: Your account password
+
+Click "Execute"
+
+Copy the returned JWT token from the response
+
+4. Configure Authorization
+In Swagger UI, click the "Authorize" button (lock icon) at the top
+
+In the authorization modal, enter:
+
+text
+Bearer <your-copied-token>
+Example: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+Click "Authorize"
+
+Close the authorization modal
+
+5. Use Bookmarks API
+You can now successfully call all protected endpoints in the Bookmarks API. The JWT token will be automatically included in the Authorization header for subsequent requests.
