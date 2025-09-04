@@ -54,7 +54,6 @@ Launch your local development server to run the API.
 2. Access Swagger Documentation
 Navigate to the Swagger UI interface:
 
-text
 http://localhost:44326/swagger
 3. Obtain JWT Token
 Locate the /jwttoken endpoint in Swagger
@@ -76,9 +75,7 @@ In Swagger UI, click the "Authorize" button (lock icon) at the top
 
 In the authorization modal, enter:
 
-text
-Bearer <your-copied-token>
-Example: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+<your-copied-token>
 
 Click "Authorize"
 
